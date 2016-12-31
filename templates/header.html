@@ -5,7 +5,11 @@
 		</a>
 	</div>
 	<div class="col-md-6 text-right">
-					<p>Login Link will go Here </p>
-		
+		{% if 'username' not in session %}
+			<a href="{{ url_for('showLogin') }}">Log In</a>
+		{% else %}
+			<img style="width: 50px; border-radius: 80px;" src="{{ userpic }}">
+			<p><a href="{{ url_for('disconnect') }}">Logout</a></p>
+		{% endif %}
 	</div>
 </div>
